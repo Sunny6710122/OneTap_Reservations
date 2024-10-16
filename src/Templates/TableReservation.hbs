@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/images/rafael-maggion-Z2LLFoSQF7k-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Navbar Styles */
+        nav ul {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Container with transparent black background */
+        .container {
+            max-width: 700px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            color: white; /* Text color white */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+            color: #84fab0;
+            margin-bottom: 30px;
+        }
+
+        /* Label styles */
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        /* Input, Textarea, and Select styles */
+        input, textarea, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            background-color: rgba(255, 255, 255, 0.2);
+            outline: none;
+            border: 2px solid #84fab0; /* Greenish border on focus */
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Button styles */
+        button {
+            background-color: #84fab0; /* Button background */
+            color: #333;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #70e89e; /* Lighter green on hover */
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        /* Responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            input, select, textarea, button {
+                padding: 10px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+
+    <!-- Table Reservation Form -->
+    <div class="container">
+        <h2>Reserve a Table</h2>
+        <form action="/TableReservation" method="post">
+            <label for="restaurant">Restaurant Name</label>
+            <input type="text" id="restaurant" name="restaurant" placeholder="Enter Restaurant Name" required>
+
+            <label for="reservationdate">Reservation Date</label>
+            <input type="date" id="reservationdate" name="reservationdate" required>
+
+            <label for="time">Reservation Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" placeholder="How many guests?" required>
+
+            <!-- New Fields: Contact Number, Special Requests, Table Preference -->
+            <label for="contact">Contact Number</label>
+            <input type="tel" id="contact" name="contact" placeholder="Your contact number" required>
+
+            <label for="specialrequests">Special Requests</label>
+            <textarea id="specialrequests" name="specialrequests" rows="3" placeholder="Any special requests?"></textarea>
+
+            <label for="tablepreference">Table Preference</label>
+            <select id="tablepreference" name="tablepreference">
+                <option value="indoor">Indoor</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="no-preference">No Preference</option>
+            </select>
+
+            <!-- Submit Button -->
+            <button type="submit">Reserve Table</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to fade in the form when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            container.style.opacity = 0;
+            setTimeout(() => {
+                container.style.transition = 'opacity 0.6s ease-in-out';
+                container.style.opacity = 1;
+            }, 200);
+        });
+
+        // Adding smooth scroll for navbar links
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Adding hover effect for input fields
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('mouseenter', () => {
+                input.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                input.style.transition = 'background-color 0.3s ease';
+            });
+            input.addEventListener('mouseleave', () => {
+                input.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

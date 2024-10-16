@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Accommodation</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/images/frames-for-your-heart-FqqiAvJejto-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Navbar Styling */
+        nav {
+            margin: 0;
+        }
+
+        nav ul {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #84fab0; /* Accent color */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #ddd;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        input, select {
+            background-color: #666;
+            color: #fff;
+            border: none;
+        }
+
+        input:focus, select:focus {
+            background-color: #555;
+            outline: none;
+            border-color: #84fab0; /* Accent color on focus */
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #555; /* Lighter on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.2s;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            input, select, button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+
+    <!-- Room Accommodation Form -->
+    <div class="container">
+        <h2>Book a Room</h2>
+        <form action="/RoomAccommodation" method="post">
+            <label for="guestname">Guest Name</label>
+            <input type="text" id="guestname" name="guestname" required>
+
+            <label for="numguests">Number of Guests</label>
+            <input type="number" id="numguests" name="numguests" min="1" required>
+
+            <label for="roomtype">Room Type</label>
+            <select id="roomtype" name="roomtype" required>
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="suite">Suite</option>
+            </select>
+
+            <label for="checkindate">Check-in Date</label>
+            <input type="date" id="checkindate" name="checkindate" required>
+
+            <label for="checkoutdate">Check-out Date</label>
+            <input type="date" id="checkoutdate" name="checkoutdate" required>
+
+            <label for="price">Total Price</label>
+            <input type="number" id="price" name="price" required>
+
+            <label for="paymentmethod">Payment Method</label>
+            <select id="paymentmethod" name="paymentmethod" required>
+                <option value="creditcard">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="cash">Cash</option>
+            </select>
+
+            <button type="submit">Book Room</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company</p>
+    </footer>
+</body>
+</html>

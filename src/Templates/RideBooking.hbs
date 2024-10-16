@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/jon-flobrant-lRSChvh1Mhs-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        nav {
+            margin: 0;
+        }
+
+        nav ul {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #ddd;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input, select, textarea {
+            background-color: #666;
+            color: #fff;
+            border: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            background-color: #555;
+            outline: none;
+            border-color: #84fab0;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ride Booking Form -->
+    <div class="container">
+        <h2>Book a Ride</h2>
+        <form action="/RideBooking" method="post">
+            <label for="name">Passenger Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="pickuplocation">Pick-up Location</label>
+            <input type="text" id="pickuplocation" name="pickuplocation" required>
+
+            <label for="dropofflocation">Drop-off Location</label>
+            <input type="text" id="dropofflocation" name="dropofflocation" required>
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="passengers">Number of Passengers</label>
+            <input type="number" id="passengers" name="passengers" min="1" max="10" required>
+
+            <label for="vehicletype">Type of Vehicle</label>
+            <select id="vehicletype" name="vehicletype" required>
+                <option value="">Select a Vehicle Type</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="van">Van</option>
+                <option value="luxury">Luxury</option>
+            </select>
+
+            <label for="fare">Estimated Fare</label>
+            <input type="number" id="fare" name="fare" required>
+
+            <label for="paymentmethod">Payment Method</label>
+            <select id="paymentmethod" name="paymentmethod" required>
+                <option value="">Select Payment Method</option>
+                <option value="cash">Cash</option>
+                <option value="credit">Credit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <button type="submit">Book Ride</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company</p>
+    </footer>
+</body>
+</html>

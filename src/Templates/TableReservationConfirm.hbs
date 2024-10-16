@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation Receipt</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/images/element5-digital-h3MQ1R7LzhY-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Navbar Styling */
+        nav ul {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #84fab0; /* Accent border on top */
+        }
+
+        h2 {
+            text-align: center;
+            color: #84fab0;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        table th {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #84fab0;
+            font-weight: bold;
+        }
+
+        table td {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #eee;
+        }
+
+        table td:last-child {
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #84fab0;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #70e89e;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+
+            button {
+                padding: 10px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+
+    <!-- Table Reservation Receipt -->
+    <div class="container">
+        <h2>Table Reservation Confirmation</h2>
+        <table>
+            <tr>
+                <th>Restaurant Name</th>
+                <td>{{restaurant}}</td>
+            </tr>
+            <tr>
+                <th>Reservation Date</th>
+                <td>{{reservationdate}}</td>
+            </tr>
+            <tr>
+                <th>Reservation Time</th>
+                <td>{{time}}</td>
+            </tr>
+            <tr>
+                <th>Number of Guests</th>
+                <td>{{guests}}</td>
+            </tr>
+            <tr>
+                <th>Contact Number</th>
+                <td>{{contact}}</td>
+            </tr>
+            <tr>
+                <th>Table Preference</th>
+                <td>{{tablepreference}}</td>
+            </tr>
+            <tr>
+                <th>Special Requests</th>
+                <td>{{specialrequests}}</td>
+            </tr>
+        </table>
+        <!-- Button for Dashboard -->
+        <button onclick="window.location.href='/'">Go to Dashboard</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

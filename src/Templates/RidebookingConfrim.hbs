@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Booking Receipt</title>
+    <style>
+        /* Reset basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('/images/maxim-hopman--16na5rDDRk-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        /* Navbar Styles */
+        nav ul {
+            background-color: rgba(51, 51, 51, 0.9);
+            padding: 15px;
+            list-style: none;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Receipt Container with transparent black background */
+        .receipt-container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            color: white; /* Text color to white for better visibility */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Header of Receipt */
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .receipt-header h1 {
+            font-size: 28px;
+            color: white;
+        }
+
+        .receipt-header p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .receipt-header img.logo {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Receipt Content */
+        .receipt-content {
+            margin-top: 20px;
+        }
+
+        .receipt-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .receipt-content th, .receipt-content td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent border */
+        }
+
+        .receipt-content th {
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+        }
+
+        .receipt-content td {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+
+        /* QR Code */
+        .qr-code {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .qr-code img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .qr-code p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Redirect Button */
+        .redirect-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .redirect-btn:hover {
+            background-color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(51, 51, 51, 0.9);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .receipt-container {
+                padding: 20px;
+            }
+
+            nav ul li a {
+                font-size: 16px;
+                padding: 8px;
+            }
+
+            .receipt-content th, .receipt-content td {
+                padding: 10px;
+            }
+
+            .redirect-btn {
+                padding: 10px;
+            }
+
+            .receipt-header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ride Booking Receipt -->
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h1>Ride Booking Receipt</h1>
+            <p>Thank you for using our service!</p>
+        </div>
+
+        <div class="receipt-content">
+            <table>
+                <tr>
+                    <th>Passenger Name</th>
+                    <td>{{Name}}</td>
+                </tr>
+                <tr>
+                    <th>Pick-up Location</th>
+                    <td>{{PickLocation}}</td>
+                </tr>
+                <tr>
+                    <th>Drop-off Location</th>
+                    <td>{{DropLocation}}</td>
+                </tr>
+                <tr>
+                    <th>Pick-up Time</th>
+                    <td>{{Time}}</td>
+                </tr>
+                <tr>
+                    <th>Number of Passengers</th>
+                    <td>{{No_Passengers}}</td>
+                </tr>
+                <tr>
+                    <th>Vehicle Type</th>
+                    <td>{{VehicleType}}</td>
+                </tr>
+                <tr>
+                    <th>Total Fare</th>
+                    <td>${{Fare}}</td>
+                </tr>
+                <tr>
+                    <th>Payment Method</th>
+                    <td>{{Pay_Method}}</td>
+                </tr>
+            </table>
+
+
+            <!-- Button to redirect to Dashboard -->
+            <button class="redirect-btn" onclick="redirectToHome()">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to redirect user to the home page (dashboard)
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+
+        // Animating the receipt page's table rows with fade-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('.receipt-content table tr');
+            rows.forEach((row, index) => {
+                setTimeout(() => {
+                    row.style.opacity = 1;
+                    row.style.transform = "translateY(0)";
+                }, index * 150); // Stagger animation for each row
+            });
+        });
+
+        // Adding smooth scrolling effect to the page's navigation links
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // QR code hover effect to enlarge it
+        const qrCode = document.querySelector('.qr-code img');
+        qrCode.addEventListener('mouseover', () => {
+            qrCode.style.transform = 'scale(1.2)';
+            qrCode.style.transition = 'transform 0.3s ease-in-out';
+        });
+
+        qrCode.addEventListener('mouseout', () => {
+            qrCode.style.transform = 'scale(1)';
+        });
+    </script>
+</body

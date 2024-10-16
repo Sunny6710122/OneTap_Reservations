@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Accommodation Receipt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/mahrous-houses-Qz17qd_6r9A-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Navbar Styling */
+        nav ul {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent black background */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #333;
+            animation: fadeIn 1s forwards;
+            opacity: 0;
+            animation-delay: 0.2s;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff; /* Change text color to white for better visibility */
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+            color: #fff; /* White text for contrast */
+            font-weight: bold;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table td {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+            color: #fff; /* White text for contrast */
+        }
+
+        table td:last-child {
+            font-weight: bold;
+        }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            table th, table td {
+                padding: 10px;
+            }
+
+            button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">{{name1}}</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Room Accommodation Receipt -->
+    <div class="container">
+        <h2>Room Accommodation Confirmation</h2>
+        <table>
+            <tr>
+                <th>Guest Name</th>
+                <td>{{guestname}}</td>
+            </tr>
+            <tr>
+                <th>Number of Guests</th>
+                <td>{{numguests}}</td>
+            </tr>
+            <tr>
+                <th>Room Type</th>
+                <td>{{roomtype}}</td>
+            </tr>
+            <tr>
+                <th>Check-in Date</th>
+                <td>{{checkindate}}</td>
+            </tr>
+            <tr>
+                <th>Check-out Date</th>
+                <td>{{checkoutdate}}</td>
+            </tr>
+            <tr>
+                <th>Payment Method</th>
+                <td>{{paymentmethod}}</td>
+            </tr>
+            <tr>
+                <th>Total Price</th>
+                <td>{{price}}</td>
+            </tr>
+        </table>
+        <!-- Button for Dashboard -->
+        <button onclick="window.location.href='/'">Go to Dashboard</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Service Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
